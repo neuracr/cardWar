@@ -1,17 +1,4 @@
-#menu-container {
-    font-family: calibri;
-    background-color: rgb(24, 77, 22);
-    color:rgb(255, 251, 0);
-    padding: 10px;
-    padding-bottom:50px;
-    font-weight: bold;
-    display: inline-block;
-    background-image: url("../img/mat.png");
-    background-repeat: no-repeat, repeat;
-}
 
-#mat-img {
-
-    max-width: 100%;
-    max-height: 100%;
+#nickname{
+    margin-left:10px;
 }

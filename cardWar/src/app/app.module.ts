@@ -9,6 +9,7 @@ import { CardComponent } from './card/card.component';
 import { StackComponent } from './stack/stack.component';
 import { MenuComponent } from './menu/menu.component';
 import { PlayerComponent } from './player/player.component';
+import { GameComponent } from './game/game.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PlayerComponent } from './player/player.component';
     CardComponent,
     StackComponent,
     MenuComponent,
-    PlayerComponent
+    PlayerComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

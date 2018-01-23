@@ -1,7 +1,40 @@
+#main-title{
+    text-align: center;
+}
+
 h1 {
     font-family: calibri;
     color: rgb(24, 77, 22);
     background-color: rgb(255, 251, 0);
     padding: 10px;
     display: inline-block;
+}
+
+a{
+    color: rgb(255, 251, 0);
+    font-size: 20px;
+    padding: 10px;
+}
+
+a:hover { 
+    color: rgb(199, 196, 14);
+}
+
+nav {
+    text-align: center;
+}
+
+#body {
+    background-color: rgb(24, 77, 22);
+    background-image: url("./img/mat.png");
+    display: inline-block;
+    margin: auto;
+}
+
+#menu, #content {
+    margin:auto;
+    font-family: calibri;
+    color:rgb(255, 251, 0);
+    padding: 10px;
+    font-weight: bold;
 }
