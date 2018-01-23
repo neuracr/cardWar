@@ -5,12 +5,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { BattlefieldComponent } from './battlefield/battlefield.component';
+import { CardComponent } from './card/card.component';
+import { StackComponent } from './stack/stack.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BattlefieldComponent
+    BattlefieldComponent,
+    CardComponent,
+    StackComponent
   ],
   imports: [
     BrowserModule,
