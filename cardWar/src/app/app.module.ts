@@ -10,6 +10,7 @@ import { StackComponent } from './stack/stack.component';
 import { MenuComponent } from './menu/menu.component';
 import { PlayerComponent } from './player/player.component';
 import { MainService } from './main.service';
+import { GameComponent } from './game/game.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MainService } from './main.service';
     CardComponent,
     StackComponent,
     MenuComponent,
-    PlayerComponent
+    PlayerComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
