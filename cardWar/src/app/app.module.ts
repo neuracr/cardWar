@@ -7,6 +7,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { BattlefieldComponent } from './battlefield/battlefield.component';
 import { CardComponent } from './card/card.component';
 import { StackComponent } from './stack/stack.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { StackComponent } from './stack/stack.component';
     AppComponent,
     BattlefieldComponent,
     CardComponent,
-    StackComponent
+    StackComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
