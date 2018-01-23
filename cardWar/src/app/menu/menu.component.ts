@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../back/player';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-menu', 
@@ -8,15 +9,14 @@ import { Player } from '../back/player';
 })
 export class MenuComponent implements OnInit {
 
-  player: Player = {
-    id: 0,
-    username: '',
-    score: 0,
-    stack: null,
-  };
-  constructor() { }
+  player: Player;
+  constructor(private mainService: MainService) { }
 
+  getPlayer(): void {
+    this.player = this.mainService.getPlayer();
+  }
   ngOnInit() {
+    this.getPlayer();
   }
 
 }

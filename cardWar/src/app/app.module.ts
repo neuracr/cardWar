@@ -9,6 +9,7 @@ import { CardComponent } from './card/card.component';
 import { StackComponent } from './stack/stack.component';
 import { MenuComponent } from './menu/menu.component';
 import { PlayerComponent } from './player/player.component';
+import { MainService } from './main.service';
 import { GameComponent } from './game/game.component';
 
 
@@ -27,7 +28,7 @@ import { GameComponent } from './game/game.component';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [MainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
