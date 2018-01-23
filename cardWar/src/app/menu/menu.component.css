@@ -1,4 +1,21 @@
+h2 {
+    text-align: center;
+    font-size: 30px;
+    border-color: rgb(255, 251, 0);
+    border-style: solid;
+    margin:0 40px;
+}
+
+
+#enter {
+    font-size: 18px;
+    text-align: center;
+}
 
 #nickname{
-    margin-left:10px;
+    margin: 0px 20px  10px 20px;
+}
+
+input{
+    width: 150px;
 }
