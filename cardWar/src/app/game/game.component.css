@@ -42,3 +42,14 @@
 nav {
     margin: 0 auto;
 }
+
+a{
+    color: rgb(255, 251, 0);
+    font-weight:bold;
+    font-family: calibri;
+    padding: 10px;
+}
+
+a:hover { 
+    text-shadow: rgb(199, 196, 14) 1px 1px, rgb(199, 196, 14) -1px 1px, rgb(199, 196, 14) -1px -1px, rgb(199, 196, 14) 1px -1px;
+}
