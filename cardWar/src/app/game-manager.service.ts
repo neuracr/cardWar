@@ -7,26 +7,28 @@ import { Player } from './back/player';
 export class GameManagerService {
 
   stack: Card[] = CARDS;
+  shuffledStack: Card[] = [];
   player1: Player;
   player2: Player;
 
-
+  
 
   constructor() { }
 
   shuffle(): void {
-    for (let i = this.stack.length - 1; i > 0; i--) {
+    for (let i = this.stack.length - 1; i >= 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      this.stack[i], this.stack[j] = this.stack[j], this.stack[i];
+      this.shuffledStack.push(this.stack[j]);
+      this.stack.splice(j, 1);
     }
   }
 
   deal(): void{
-    for (let i = this.stack.length - 1; i > 0; i--) {
-      if (i> (this.stack.length/2-1)) {
-        this.player1.pack.push(this.stack[i]);
+    for (let i = this.shuffledStack.length - 1; i >= 0; i--) {
+      if (i> (this.shuffledStack.length/2-1)) {
+        this.player1.pack.push(this.shuffledStack[i]);
       } else {
-        this.player2.pack.push(this.stack[i]);
+        this.player2.pack.push(this.shuffledStack[i]);
       }
     }
   }
@@ -41,8 +43,6 @@ public joinGame(player: Player){
     this.player2.pack = [];;
 
     this.startGame();
-    console.log(this.player1.pack);
-    console.log(this.player2.pack);
   }
   //ne sera jamais executé pour l'instant normalement
   else if (this.player2 == null){
@@ -57,13 +57,10 @@ public joinGame(player: Player){
 
   public startGame(): void{
     this.shuffle();
-    this.deal()
+    this.deal();
   }
 
   public playCard(card: Card, player: Player){
 
   }
-
-
-
 }
