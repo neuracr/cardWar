@@ -6,7 +6,7 @@ import { Player } from './back/player';
 @Injectable()
 export class GameManagerService {
 
-  cards: Card[] = CARDS;
+  stack: Card[] = CARDS;
   player1: Player;
   player2: Player;
 
@@ -14,12 +14,20 @@ export class GameManagerService {
   constructor() { }
 
   shuffle(): void {
-    //mélange des cartes
+    for (let i = this.stack.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      this.stack[i], this.stack[j] = this.stack[j], this.stack[i];
+    }
   }
 
   deal(): void{
-    //distribue les cartes
-  
+    for (let i = this.stack.length - 1; i > 0; i--) {
+      if (i> (this.stack.length/2-1)) {
+        this.player1.stack.push(this.stack[i]);
+      } else {
+        this.player2.stack.push(this.stack[i]);
+      }
+    }
   }
 
   startGame(player1: Player, player2: Player): void{
@@ -34,8 +42,4 @@ export class GameManagerService {
     this.shuffle();
     this.deal()
   }
-
-
-
-
 }
