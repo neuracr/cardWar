@@ -19,5 +19,22 @@ export class GameComponent implements OnInit {
     }
   }
 
+  public moveCard(img :HTMLImageElement) { 
+    /*/
+    var posTop = 0, posRight = 47;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (posTop == -90) {
+        clearInterval(id);
+      } else {
+        posTop--;
+        posRight = posRight - 0.08;
+        elem.style.top = posTop + 'px';
+        elem.style.right = posRight + '%'; 
+      }
+    }/*/
+      
+  }
+
 
 }
