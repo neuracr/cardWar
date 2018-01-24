@@ -22,4 +22,8 @@ export class PlayerComponent implements OnInit {
     this.player = this.mainService.getPlayer();
   }
 
+  public joinGame(): void{
+    this.gameManager.joinGame(this.player);
+  }
+
 }

@@ -23,22 +23,28 @@ export class GameManagerService {
   deal(): void{
     for (let i = this.stack.length - 1; i > 0; i--) {
       if (i> (this.stack.length/2-1)) {
-        this.player1.stack.push(this.stack[i]);
+        this.player1.pack.push(this.stack[i]);
       } else {
-        this.player2.stack.push(this.stack[i]);
+        this.player2.pack.push(this.stack[i]);
       }
     }
   }
 
-  public startGame(player1: Player, player2: Player): void{
-    this.player1 = player1;
-    if (player2 == null){
-      this.player2 = new Player();
-    }
-    else{
-      this.player2 = player2;
-    }
+public joinGame(player: Player){
+  console.log("joined game");
+  if (this.player1 == null){
+    this.player1 = player;
+  }
+  else if (this.player2 == null){
+    this.player2 = player;
+    this.startGame();
+  }
+  else{
 
+  }
+}
+
+  public startGame(): void{
     this.shuffle();
     this.deal()
   }

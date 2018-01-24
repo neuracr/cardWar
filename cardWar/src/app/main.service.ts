@@ -8,7 +8,7 @@ export class MainService {
     id: 0,
     username: '',
     score: 0,
-    stack: null,
+    pack: null,
   }
   constructor() { }
 
