@@ -9,6 +9,7 @@ import { MainService } from '../main.service';
 })
 export class MenuComponent implements OnInit {
 
+
   player: Player;
   constructor(private mainService: MainService) { }
 
