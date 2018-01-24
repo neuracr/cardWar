@@ -31,7 +31,7 @@ import { GameManagerService } from './game-manager.service';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [MainService, GameManagerService],
+  providers: [MainService, GameManagerService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

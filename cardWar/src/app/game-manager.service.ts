@@ -8,7 +8,7 @@ export class GameManagerService {
 
   cards: Card[] = CARDS;
 
-  constructor(private gameManager: GameManagerService) { }
+  constructor() { }
 
   shuffle(): void {
     //mélange des cartes
