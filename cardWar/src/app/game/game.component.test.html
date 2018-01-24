@@ -1,0 +1,42 @@
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="game.component.css">
+  </head>
+  <body>
+      <div id = "game">
+          <div id = "bot-pack">
+              <p id="warbot">WarBot</p>
+          </div>
+          <div id ="animate">
+            </div>
+          <div id = "player-pack" onclick="myMove();" style="cursor:pointer;" >
+               <p id="player">{{player.username}}<!-- Pseudo du joueur à ajouter !--></p>
+          </div>
+       </div>
+       
+       <nav>
+           <a routerLink="/menu">Go Back to Menu</a>
+       </nav>
+       
+           
+           
+       <script>
+       function myMove() {
+         var elem = document.getElementById("animate");   
+         var posTop = 0, posRight = 47;
+         var id = setInterval(frame, 2);
+         function frame() {
+           if (posTop == -80) {
+             clearInterval(id);
+           } else {
+             posTop--;
+             posRight = posRight - 0.11;
+             elem.style.top = posTop + 'px';
+             elem.style.right = posRight + '%'; 
+           }
+         }
+       }
+       </script>
+       
+  </body>
+</html>
