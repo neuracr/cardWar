@@ -7,6 +7,7 @@ import { MainService } from '../main.service';
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
+
 export class PlayerComponent implements OnInit {
   player: Player;
   constructor(private mainService : MainService) { }
