@@ -2,7 +2,8 @@
    <div id = "bot-pack">
        <p id="warbot">WarBot</p>
    </div>
-   <div id = "player-pack" onclick="javascript:tafonction();" style="cursor:pointer;" >
+   <div id = "card-up" [ngStyle] = "{'visibility':getVisibility()}"> </div>
+   <div id = "player-pack" (click) = "changeVisibility()">
         <p id="player">{{player.username}}<!-- Pseudo du joueur à ajouter !--></p>
    </div>
 </div>
@@ -10,29 +11,3 @@
 <nav>
     <a routerLink="/menu">Go Back to Menu</a>
 </nav>
-
-<p>
-<button onclick="myMove()">Click Me</button>
-</p> 
-
-<div id ="container">
-    <div id ="animate">
-    </div>
-</div>
-
-<script>
-function myMove() {
-  var elem = document.getElementById("animate");   
-  var pos = 0;
-  var id = setInterval(frame, 2);
-  function frame() {
-    if (pos == 350) {
-      clearInterval(id);
-    } else {
-      pos++; 
-      elem.style.top = pos + 'px'; 
-      elem.style.left = pos + 'px'; 
-    }
-  }
-}
-</script>

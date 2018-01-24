@@ -73,7 +73,7 @@ export class GameManagerService {
     }
     else if (this.player2 == player){
       console.log("received card from player2");
-      this.
+      //this.
     }
     else{
       console.log("received card from unknown player");

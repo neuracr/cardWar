@@ -15,26 +15,43 @@ export class GameComponent implements OnInit {
 
   constructor(private gameManager: GameManagerService, private mainService : MainService) { }
   
-  private observablePlayedCard: Observable<Play>
+  //private observablePlayedCard: Observable<Play>
   player: Player;
+  visibility: string = "hidden";
   
   ngOnInit() {
     this.player = this.mainService.getPlayer();
     if (this.player.username == "") {
       this.player.username = "UnknownPlayer";
     }
-    this.observablePlayedCard.subscribe(
-      value => this.playCard(value.card, value.position)
-    )
+    //this.observablePlayedCard.subscribe(
+    //  value => this.playCard(value.card, value.position)
+    //)
+  }
+
+  public getVisibility() {
+    return this.visibility;
+  }
+
+  public changeVisibility() {
+    if (this.visibility == "visible") {
+      this.visibility = "hidden";
+    } else {
+      this.visibility = "visible";
+    }
+    
   }
 
   public playCard(card: Card, position: string): void{
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
     console.log('affichage de la carte jouée par le joueur ' + position);
+
+
   }
 
-  public moveCard(img :HTMLImageElement) { 
+  public moveCard(img:HTMLImageElement) { 
+    
     /*/
     var posTop = 0, posRight = 47;
     var id = setInterval(frame, 10);
@@ -48,7 +65,6 @@ export class GameComponent implements OnInit {
         elem.style.right = posRight + '%'; 
       }
     }/*/
-      
   }
 
 
