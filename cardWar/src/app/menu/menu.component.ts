@@ -15,7 +15,11 @@ export class MenuComponent implements OnInit {
 
   getPlayer(): void {
     this.player = this.mainService.getPlayer();
+    if (this.player.username == "UnknownPlayer" && this.player.id === 0) {
+      this.player = new Player;
+    }
   }
+
   ngOnInit() {
     this.getPlayer();
   }
