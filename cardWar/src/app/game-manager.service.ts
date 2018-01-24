@@ -11,6 +11,7 @@ export class GameManagerService {
   player2: Player;
 
 
+
   constructor() { }
 
   shuffle(): void {
@@ -31,17 +32,23 @@ export class GameManagerService {
   }
 
 public joinGame(player: Player){
-  console.log("joined game");
+  console.log("joined game in game manager");
   if (this.player1 == null){
     this.player1 = player;
     //création du bot
-    this.player2 = new Player;
+    this.player2 = new Player
+    this.player1.pack = [];
+    this.player2.pack = [];;
+
+    this.startGame();
+    console.log(this.player1.pack);
+    console.log(this.player2.pack);
   }
   //ne sera jamais executé pour l'instant normalement
   else if (this.player2 == null){
     this.player2 = player;
     this.startGame();
-    console.log(this.player1.pack);
+
   }
   else{
     console.log("comment est-on arrivé ici ?");
