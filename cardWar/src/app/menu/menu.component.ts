@@ -20,6 +20,12 @@ export class MenuComponent implements OnInit {
     }
   }
 
+  startGame(): void{
+    console.log("menu component start game");
+    this.mainService.startGame();
+
+  }
+
   ngOnInit() {
     this.getPlayer();
   }

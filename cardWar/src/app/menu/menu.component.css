@@ -19,3 +19,22 @@ h2 {
 input{
     width: 130px;
 }
+
+a{
+    color: rgb(255, 251, 0);
+    font-size: 30px;
+    font-weight:bold;
+    padding: 10px;
+
+    text-decoration:none;
+}
+
+a:hover { 
+    text-shadow: rgb(199, 196, 14) 1px 1px, rgb(199, 196, 14) -1px 1px, rgb(199, 196, 14) -1px -1px, rgb(199, 196, 14) 1px -1px;
+}
+
+nav {
+    text-align: center;
+    font-family: calibri;
+    margin-bottom:10px;
+}
