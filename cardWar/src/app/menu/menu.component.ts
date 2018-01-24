@@ -16,6 +16,11 @@ export class MenuComponent implements OnInit {
   getPlayer(): void {
     this.player = this.mainService.getPlayer();
   }
+
+  startGame(): void{
+    this.mainService.startGame();
+  }
+  
   ngOnInit() {
     this.getPlayer();
   }
