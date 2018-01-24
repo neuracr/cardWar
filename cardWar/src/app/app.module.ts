@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { PlayerComponent } from './player/player.component';
 import { MainService } from './main.service';
 import { GameComponent } from './game/game.component';
+import { MenuPageComponent } from './menu-page/menu-page.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { GameComponent } from './game/game.component';
     StackComponent,
     MenuComponent,
     PlayerComponent,
-    GameComponent
+    GameComponent,
+    MenuPageComponent
   ],
   imports: [
     BrowserModule,
