@@ -54,11 +54,11 @@ a:hover {
     text-shadow: rgb(199, 196, 14) 1px 1px, rgb(199, 196, 14) -1px 1px, rgb(199, 196, 14) -1px -1px, rgb(199, 196, 14) 1px -1px;
 }
 
-  #animate {
+#animate {
     background-image: url("../img/0s.gif");
     background-size: 50px;
     width: 50px;
-    height: 65px;
+    height: 70px;
     position: absolute;
     margin-left:220px;
     margin-top:220px;
