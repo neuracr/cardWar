@@ -14,6 +14,10 @@ export class GameComponent implements OnInit {
   player: Player;
   ngOnInit() {
     this.player = this.mainService.getPlayer();
+    if (this.player.username == "" || this.player.username == null) {
+      this.player.username = "UnknownPlayer";
+      this.player.id = 0;
+    }
   }
 
 
