@@ -18,6 +18,7 @@ export class MainService {
 
   setPlayerUsername(name: string): void {
     this.player.username = name;
+    console.log(name);
   }
 
 }

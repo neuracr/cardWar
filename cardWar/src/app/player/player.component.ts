@@ -8,7 +8,7 @@ import { MainService } from '../main.service';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  player: Player;
+  private player: Player;
   constructor(private mainService : MainService) { }
 
   reload(): void{

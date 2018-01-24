@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuComponent } from './menu/menu.component';
 import { CARDS } from './back/mock-cards';
-import { PlayerComponent } from './player/player.component';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +9,4 @@ import { PlayerComponent } from './player/player.component';
 export class AppComponent {
   title = 'cardWar';
   cards = CARDS;
-  player = {username: "" };
 }
