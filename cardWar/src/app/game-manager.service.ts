@@ -34,13 +34,16 @@ public joinGame(player: Player){
   console.log("joined game");
   if (this.player1 == null){
     this.player1 = player;
+    //création du bot
+    this.player2 = new Player;
   }
+  //ne sera jamais executé pour l'instant normalement
   else if (this.player2 == null){
     this.player2 = player;
     this.startGame();
   }
   else{
-
+    console.log("comment est-on arrivé ici ?");
   }
 }
 
