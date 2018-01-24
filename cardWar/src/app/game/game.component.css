@@ -4,6 +4,9 @@
     height:308px;
     width:494px;
     margin-top:20px;
+    font-family: calibri;
+    font-weight: bold;
+    color: rgb(255, 251, 0);
 }
 
 #bot-pack, #player-pack {
@@ -13,9 +16,26 @@
     height:76.25px;
     width:54.5px;
     margin: 0 auto;
+    position:absolute;
+    margin-left: 220px;   
+}
+
+#bot-pack {
+    margin-top: 10px;
 }
 
 #player-pack {
-    position:relative;
-    bottom:0;
+    margin-top: 220px;
+}
+
+#warbot {
+    margin-left : -80px;
+    margin-top: -5px;
+    font-size: 20px;
+}
+
+#player {
+    margin-left: 68px;
+    margin-top: 56px;
+    font-size: 20px;
 }
