@@ -22,7 +22,7 @@ export class GameManagerService {
   
   }
 
-  startGame(player1: Player, player2: Player): void{
+  public startGame(player1: Player, player2: Player): void{
     this.player1 = player1;
     if (player2 == null){
       this.player2 = new Player();
@@ -35,6 +35,9 @@ export class GameManagerService {
     this.deal()
   }
 
+  public playCard(card: Card, player: Player){
+
+  }
 
 
 

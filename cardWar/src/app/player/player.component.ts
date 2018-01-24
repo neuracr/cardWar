@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Player } from '../back/player';
 import { MainService } from '../main.service';
+import { GameManagerService } from '../game-manager.service';
 
 @Component({
   selector: 'app-player',
@@ -10,11 +11,13 @@ import { MainService } from '../main.service';
 
 export class PlayerComponent implements OnInit {
   player: Player;
-  constructor(private mainService : MainService) { }
+  
+  constructor(private mainService : MainService, private gameManager: GameManagerService) { }
 
-  reload(): void{
-    this.player = this.mainService.getPlayer();
+  playACard(): void {
+    this.gameManager.playCard(this.player.pack.pop(), this.player);
   }
+
   ngOnInit() {
     this.player = this.mainService.getPlayer();
   }
