@@ -1,33 +1,27 @@
-#main-title{
-    text-align: center;
-}
-
-h1 {
-    font-family: calibri;
-    color: rgb(24, 77, 22);
-    padding: 10px;
-    display: inline-block;
-}
-
 a{
     color: rgb(255, 251, 0);
-    font-size: 20px;
+    font-size: 30px;
+    font-weight:bold;
     padding: 10px;
+
+    text-decoration:none;
 }
 
 a:hover { 
-    color: rgb(199, 196, 14);
+    text-shadow: rgb(199, 196, 14) 1px 1px, rgb(199, 196, 14) -1px 1px, rgb(199, 196, 14) -1px -1px, rgb(199, 196, 14) 1px -1px;
 }
 
 nav {
     text-align: center;
+    font-family: calibri;
+    margin-bottom:10px;
 }
 
 #body {
     background-color: rgb(24, 77, 22);
     background-image: url("../img/mat.png");
     width:300px;
-    height:auto;
+    height:230px;
     margin: auto;
 }
 
