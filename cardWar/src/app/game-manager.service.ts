@@ -41,6 +41,7 @@ public joinGame(player: Player){
   else if (this.player2 == null){
     this.player2 = player;
     this.startGame();
+    console.log(this.player1.pack);
   }
   else{
     console.log("comment est-on arrivé ici ?");
