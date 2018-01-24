@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Card } from './back/card';
 import { CARDS } from './back/mock-cards';
 import { Player } from './back/player';
+import { GameComponent } from './game/game.component';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class GameManagerService {
@@ -10,6 +13,7 @@ export class GameManagerService {
   shuffledStack: Card[] = [];
   player1: Player;
   player2: Player;
+
 
   
 
@@ -33,7 +37,6 @@ export class GameManagerService {
     }
   }
 
-<<<<<<< HEAD
   public joinGame(player: Player){
     console.log("joined game in game manager");
     if (this.player1 == null){
@@ -51,23 +54,6 @@ export class GameManagerService {
     else if (this.player2 == null){
       this.player2 = player;
       this.startGame();
-=======
-public joinGame(player: Player){
-  console.log("joined game in game manager");
-  if (this.player1 == null){
-    this.player1 = player;
-    //création du bot
-    this.player2 = new Player
-    this.player1.pack = [];
-    this.player2.pack = [];;
-
-    this.startGame();
-  }
-  //ne sera jamais executé pour l'instant normalement
-  else if (this.player2 == null){
-    this.player2 = player;
-    this.startGame();
->>>>>>> c0222d5e86bf9518898438b8345c9b4c110d7f07
 
     }
     else{
@@ -87,6 +73,7 @@ public joinGame(player: Player){
     }
     else if (this.player2 == player){
       console.log("received card from player2");
+      this.
     }
     else{
       console.log("received card from unknown player");
@@ -94,11 +81,4 @@ public joinGame(player: Player){
     }
     //on regarde si l'on a les cartes des deux joueurs pour savoir qui gagne.
   }
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> c0222d5e86bf9518898438b8345c9b4c110d7f07
 }
