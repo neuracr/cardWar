@@ -1,0 +1,21 @@
+#game {
+    background-image: url("../img/battlefield.png");
+    margin:0 auto;
+    height:308px;
+    width:494px;
+    margin-top:20px;
+}
+
+#bot-pack, #player-pack {
+    background-image: url("../img/card_pack.png");
+    background-size: 54.5px;
+    background-repeat: no-repeat;
+    height:76.25px;
+    width:54.5px;
+    margin: 0 auto;
+}
+
+#player-pack {
+    position:relative;
+    bottom:0;
+}
