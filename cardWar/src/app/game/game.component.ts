@@ -59,6 +59,8 @@ export class GameComponent implements OnInit {
     switch(data){
       case "war": 
         this.war = "BATAILLE !";
+        this.cardUp = " / ";
+        this.cardDown = " / ";
       break;
       case "up":
         this.war = "WarBot gagne !";
