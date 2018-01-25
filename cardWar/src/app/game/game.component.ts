@@ -104,7 +104,11 @@ export class GameComponent implements OnInit {
   public whichCard(cardValue, cardColor) {
     var theCard : string = "";
     if (!isNaN(Number(cardValue))) {
-      theCard = cardValue
+      if (Number(cardValue) == 0) {
+        theCard = '10';
+      } else {
+        theCard = cardValue;
+      }
     } else {
       switch(cardValue) {
         case 'A':
@@ -118,9 +122,6 @@ export class GameComponent implements OnInit {
         break;
         case 'K':
           theCard = 'Roi';
-        break;
-        case '0':
-          theCard = '10';
         break;
       }
     } 
