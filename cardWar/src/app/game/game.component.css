@@ -9,7 +9,7 @@
 }
 
 #card-up {
-    background-image: url('../img/As.gif');
+    /*/background-image: url("../img/As.gif");/*/
     background-size: 50px;
     background-repeat: no-repeat;
     width:50px;   
@@ -78,22 +78,26 @@ a:hover {
     margin-top:220px;
   }
 
-.Ac {
+#Ac {
     background-image: url('../img/Ac.gif'); 
-    visibility: hidden;
+    visibility: visible;
+    height:50px;
+    width:60px;
 }
 
-.As {
+#As {
     background-image: url('../img/As.gif'); 
-    visibility: hidden;
+    visibility: visible;
+    height:50px;
+    width:60px;
 }
 
-.Ad {
+#Ad {
     background-image: url('../img/Ad.gif'); 
     visibility: hidden;
 }
 
-.Ah {
+#Ah {
     background-image: url('../img/Ah.gif'); 
     visibility: hidden;
 }

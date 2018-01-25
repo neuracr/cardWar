@@ -32,7 +32,7 @@ export class GameComponent implements OnInit {
   //private observablePlayedCard: Observable<Play>
   player: Player;
   visibility: string = "visible";
-  card_name: string = "url('../img/As.gif')";
+  card_name: string = "'url('../img/Ac.gif');'";
   mock_urls : string[] = [];
  
   
@@ -46,7 +46,7 @@ export class GameComponent implements OnInit {
     console.log(this.mock_cards);
 
     for (let i = this.mock_cards.length - 1; i >= 0; i--) {
-      this.mock_urls.push("url('../img/"+ this.mock_cards[i].value + this.mock_cards[i].color + ".gif;')");
+      this.mock_urls.push("url('../img/"+ this.mock_cards[i].value + this.mock_cards[i].color + ".gif');");
     }
     
 
@@ -63,7 +63,6 @@ export class GameComponent implements OnInit {
   public onPackClick(): void{
     this.playerService.playACard();
     //this.changeVisibility();
-    this.changeCard();
   }
 
   public changeVisibility() {
@@ -80,14 +79,14 @@ export class GameComponent implements OnInit {
   }
 
   public changeCard() {
-    this.card_name =  "url('../img/"+ "2" + "c"+".gif')";
+    this.card_name =  "url('../img/"+ "2" + "c"+".gif');";
   }
 
   public playCard(play: Play): void{
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
     console.log('gameComponent: '+ play.position + " played " + play.card.value + play.card.color);
-    this.changeVisibility();
+    this.card_name = "'url('../img/"+play.card.value + play.card.color +".gif')'";
 
   }
 
