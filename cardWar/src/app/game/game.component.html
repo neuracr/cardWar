@@ -4,10 +4,22 @@
    </div>
    <div id = "card-up" [ngStyle] = "{'visibility':getVisibility()}"> </div>
    <div id = "player-pack" (click) = "changeVisibility()">
-        <p id="player">{{player.username}}<!-- Pseudo du joueur à ajouter !--></p>
+        <p id="player">{{player.username}}<!-- [ngStyle] =  "{'background-image': getImgUrl()}"  "{'visibility':getVisibility()}" !--></p>
    </div>
 </div>
 
 <nav>
     <a routerLink="/menu">Go Back to Menu</a>
 </nav>
+
+<div style="visibility:hidden">
+    <div id = "Ac"></div>
+    <div id = "Ad"></div>
+    <div id = "Ah"></div>
+    <div id = "As"></div>
+    <div id = "A2c"></div>
+    <div id = "A2d"></div>
+    <div id = "A2h"></div>
+    <div id = "A2s"></div>
+    
+</div>
