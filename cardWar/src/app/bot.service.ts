@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Player } from './back/player';
 import { MainService } from './main.service';
+import { Card } from './back/card';
 import { GameManagerService } from './game-manager.service';
 
 @Injectable()
@@ -13,8 +14,12 @@ export class BotService {
     console.log("initialisation du bot");
     this.player = { id: 0, username: "RobbyBot", score: 0, pack: [] };
 
-
+    this.gameManager.pushPack2.subscribe((packToCopy:Card[]) => this.player.pack = packToCopy);
     this.gameManager.pushBotCommand.subscribe((command:string) => this.runCommand(command));
+  }
+
+  ngOnInit() {
+    this.player = { id: 0, username: "RobbyBot", score: 0, pack: [] };
   }
 
   public playACard(): void {
@@ -23,6 +28,7 @@ export class BotService {
   }
 
   private runCommand(command: string): void {
+    console.log("jfsqkljfsqklfljqsmjl");
     //run the command on the bot asked by the game manager
     switch(command){
       case "playCard":{

@@ -22,6 +22,8 @@ export class GameManagerService {
 
   //emitter to notify the gameComponent to display a card
   pushPlay = new EventEmitter<Play>();
+  pushPack1 = new EventEmitter<Card[]>();
+  pushPack2 = new EventEmitter<Card[]>();
   pushBotCommand = new EventEmitter<string>();
   pushEvent = new EventEmitter<string>(); //notify war and who won the turn 
 
@@ -39,6 +41,7 @@ export class GameManagerService {
   }
 
   deal(): void{
+    console.log("Je deal moi monsieur");
     for (let i = this.shuffledStack.length - 1; i >= 0; i--) {
       if (i> (this.shuffledStack.length/2-1)) {
         this.player1.pack.push(this.shuffledStack[i]);
@@ -46,14 +49,19 @@ export class GameManagerService {
         this.player2.pack.push(this.shuffledStack[i]);
       }
     }
+    this.pushPack1.emit(this.player1.pack);
+    this.pushPack2.emit(this.player2.pack);
   }
 
   public joinGame(player: Player){
     console.log(player.username + " joined game in game manager");
     if (this.player1 == null){
+      console.log("coucou c'est ici");
       this.player1 = player;
+      
       //création du bot
       this.pushBotCommand.emit("joinGame");
+
     }
     //ne sera jamais executé pour l'instant normalement
     else if (this.player2 == null){
@@ -78,7 +86,7 @@ export class GameManagerService {
   }
 
   public playCard(card: Card, player: Player): void {
-    console.log(card.color);
+    console.log(card.color); 
     if(this.player1 == player){
       //trouver pourquoi la carte est vide
       console.log("received card from player1");

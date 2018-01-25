@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Player } from './back/player';
 import { MainService } from './main.service';
+import { Card } from './back/card';
 import { GameManagerService } from './game-manager.service';
 
 @Injectable()
@@ -8,8 +9,9 @@ export class PlayerService {
   player: Player;
 
   constructor(private mainService: MainService, private gameManager: GameManagerService) {
-    this.player = { id: 0, username: "", score: 0, pack: [] };
     console.log("initialisation du player");
+    this.player = { id: 0, username: "", score: 0, pack: [] };
+    this.gameManager.pushPack1.subscribe((packToCopy:Card[]) => this.player.pack = packToCopy);
  
   }
   
