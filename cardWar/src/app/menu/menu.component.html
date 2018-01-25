@@ -1,12 +1,12 @@
 <div id = "menu-container">
-  <h2>Main Menu</h2>
-  <p id = "enter"> Enter a Nickname before playing !</p>
-  <label>nickname: 
-    <input id="nickname" [(ngModel)]="player.username" placeholder="nickname"/>
+  <h2>Menu principal</h2>
+  <p id = "enter"> Entrez un pseudo avant de jouer !</p>
+  <label>pseudo: 
+    <input id="nickname" [(ngModel)]="playerService.player.username" placeholder="pseudo"/>
     <!--<button class="validate"
           (click)="mainService.setPlayerUsername(player.username)">ok</button>-->
   </label>
   <nav>
-    <button (click)="startGame()" routerLink="/game" >PLAY !</button>
+    <button (click)="startGame()" routerLink="/game" >JOUER !</button>
   </nav>
 </div>

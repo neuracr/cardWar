@@ -19,21 +19,14 @@ export class MenuComponent implements OnInit {
               private playerService: PlayerService,
               private botService: BotService, ) { }
 
-  getPlayer(): void {
-    this.player = this.mainService.getPlayer();
-    if (this.player.username == "UnknownPlayer" && this.player.id === 0) {
-      this.player = new Player;
-    }
-  }
-
   startGame(): void{
-    console.log("menu component start game");
+    console.log("menu component start game with " + this.playerService.getPlayer().username);
     this.gameManager.joinGame( this.playerService.getPlayer() );
 
   }
 
   ngOnInit() {
-    this.player = this.playerService.getPlayer();
+    
   }
 
 }

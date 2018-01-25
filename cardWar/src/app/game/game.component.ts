@@ -58,7 +58,6 @@ export class GameComponent implements OnInit {
   public manageEvent(data: string): void{
     switch(data){
       case "war":
-        console.log("gc bataille");
         this.war = "BATAILLE !";
         break;
       case "cover":
@@ -68,8 +67,13 @@ export class GameComponent implements OnInit {
         this.war = "WarBot gagne !";
       break;
       case "down":
-        this.war = this.player.username + " gagne !";
-      break;
+        if (this.playerService.player.username != ''){
+        this.war = this.playerService.player.username + " gagne !";
+        }
+        else{
+          this.war = "joueur anonyme gagne !";
+        }
+        break;
     }
   }
 

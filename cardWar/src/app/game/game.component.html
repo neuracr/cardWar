@@ -6,10 +6,13 @@
    <div id = "card-down" [ngStyle] = "{'visibility': getVisibility()}"> {{cardDown}}</div>
    <div id = "war" >{{ war }} </div>
    <div id = "player-pack" (click) = "onPackClick()">
-        <p id="player">{{player.username}}<!-- [ngStyle] =  "{'background-image': getImgUrl()}"  "{'visibility':getVisibility()}" !--></p>
+        <p *ngIf="playerService.player.username != ''" id="player">{{playerService.player.username}}<!-- [ngStyle] =  "{'background-image': getImgUrl()}"  "{'visibility':getVisibility()}" !-->
+        </p>
+        <p *ngIf="playerService.player.username == ''" id="player">joueur anonyme<!-- [ngStyle] =  "{'background-image': getImgUrl()}"  "{'visibility':getVisibility()}" !-->
+        </p>
    </div>
 </div>
 
 <nav>
-    <a routerLink="/menu">Go Back to Menu</a>
+    <a routerLink="/menu">Retour au menu principal</a>
 </nav>
