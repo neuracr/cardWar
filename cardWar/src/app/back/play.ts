@@ -4,4 +4,5 @@ import { Card } from './card';
 export class Play {
     card: Card;
     position: string;
+    
 }

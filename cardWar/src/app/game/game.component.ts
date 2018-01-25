@@ -45,14 +45,31 @@ export class GameComponent implements OnInit {
       this.player.username = "UnknownPlayer";
     }
     
-    console.log(this.mock_cards);
-
     for (let i = this.mock_cards.length - 1; i >= 0; i--) {
       this.mock_urls.push("url('../img/"+ this.mock_cards[i].value + this.mock_cards[i].color + ".gif');");
     }
     this.gameManager.pushPlay.subscribe((data:Play) => this.playCard(data));
+    this.gameManager.pushEvent.subscribe((data:string) => this.manageEvent(data) );
   }
 
+
+  public manageEvent(data: string): void{
+    switch(data){
+      case "war": {
+        this.declareWar();
+      }
+      case "up":{
+        //function to notify up won
+      }
+      case "down":{
+        //function to notify down won
+      }
+    }
+  }
+
+  public declareWar(): void{
+    //afficher une information comme quoi il y a bataille
+  }
   public getVisibility() {
     return this.visibility;
   }

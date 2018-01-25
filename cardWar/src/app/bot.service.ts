@@ -11,12 +11,12 @@ export class BotService {
 
   constructor(private mainService: MainService, private gameManager: GameManagerService) {
     console.log("initialisation du bot");
-    //this.player = { id: 0, username: "RobbyBot", score: 0, pack: [] };
+    this.player = { id: 0, username: "RobbyBot", score: 0, pack: [] };
 
 
-    //this.gameManager.pushBotCommand.subscribe((command:string) => this.runCommand(command));
+    this.gameManager.pushBotCommand.subscribe((command:string) => this.runCommand(command));
   }
-  /*
+
   public playACard(): void {
     console.log("botService.playACard()");
     this.gameManager.playCard(this.player.pack.pop(), this.player);
@@ -45,6 +45,6 @@ export class BotService {
   public getPlayer(): Player {
     return this.player;
   }
-*/
+
 
 }
