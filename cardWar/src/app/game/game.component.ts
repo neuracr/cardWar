@@ -8,6 +8,7 @@ import { Play } from '../back/play'
 import { PlayerService } from '../player.service';
 import { BotService } from '../bot.service';
 
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -42,7 +43,7 @@ export class GameComponent implements OnInit {
   
   
   ngOnInit() {
-    this.player = this.mainService.getPlayer();
+    this.player = this.mainService.getPlayer(); 
     if (this.player.username == "") {
       this.player.username = "UnknownPlayer";
     }
