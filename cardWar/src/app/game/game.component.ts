@@ -20,7 +20,8 @@ export class GameComponent implements OnInit {
   
   constructor(private gameManager: GameManagerService, 
               private mainService : MainService,
-              private playerService: PlayerService) { 
+              private playerService: PlayerService, 
+              private botService: BotService, ) { 
     for (let i in this.VALUES) {
       for (let j in this.COLORS) {
         this.mock_cards.push(

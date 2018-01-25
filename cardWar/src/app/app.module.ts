@@ -32,7 +32,7 @@ import { BotService } from './bot.service';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [MainService, GameManagerService, PlayerService, BotService,],
+  providers: [MainService, GameManagerService, PlayerService, BotService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

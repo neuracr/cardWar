@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Player } from './back/player';
-import { GameManagerService } from './game-manager.service'
 
 @Injectable()
 export class MainService {
