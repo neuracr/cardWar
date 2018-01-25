@@ -14,6 +14,7 @@ import { GameComponent } from './game/game.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { GameManagerService } from './game-manager.service';
 import { PlayerService } from './player.service';
+import { BotService } from './bot.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { PlayerService } from './player.service';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [MainService, GameManagerService, PlayerService, ],
+  providers: [MainService, GameManagerService, PlayerService, BotService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
