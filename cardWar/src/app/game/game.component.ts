@@ -57,21 +57,17 @@ export class GameComponent implements OnInit {
 
   public manageEvent(data: string): void{
     switch(data){
-      case "war": 
+      case "war":
+        console.log("gc bataille");
         this.war = "BATAILLE !";
-      break;
+        break;
+      case "cover":
+        this.war = "cartes recouvertes";
+        break;
       case "up":
-        if (this.war == "BATAILLE !") {
-          this.cardUp = " / ";
-          this.cardDown = " / ";
-        }
         this.war = "WarBot gagne !";
       break;
       case "down":
-      if (this.war == "BATAILLE !") {
-        this.cardUp = " / ";
-        this.cardDown = " / ";
-      }
         this.war = this.player.username + " gagne !";
       break;
     }
@@ -140,6 +136,9 @@ export class GameComponent implements OnInit {
         case 'K':
           theCard = 'Roi';
         break;
+        case '/':
+          theCard = '/';
+          break;
       }
     } 
     switch(cardColor) {
@@ -155,6 +154,9 @@ export class GameComponent implements OnInit {
       case 'c':
         theCard+=" ♣";
       break;
+      case '/':
+        theCard+="/";
+        break;
     }
     return theCard;
   }
