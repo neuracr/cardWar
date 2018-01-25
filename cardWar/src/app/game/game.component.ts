@@ -59,13 +59,19 @@ export class GameComponent implements OnInit {
     switch(data){
       case "war": 
         this.war = "BATAILLE !";
-        this.cardUp = " / ";
-        this.cardDown = " / ";
       break;
       case "up":
+        if (this.war == "BATAILLE !") {
+          this.cardUp = " / ";
+          this.cardDown = " / ";
+        }
         this.war = "WarBot gagne !";
       break;
       case "down":
+      if (this.war == "BATAILLE !") {
+        this.cardUp = " / ";
+        this.cardDown = " / ";
+      }
         this.war = this.player.username + " gagne !";
       break;
     }
@@ -102,7 +108,7 @@ export class GameComponent implements OnInit {
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
     this.changeVisibility();
-    
+    console.log(play.card.value+play.card.color);
     if (play.position == "up") {
       this.cardUp = this.whichCard(play.card.value, play.card.color);
     } else {

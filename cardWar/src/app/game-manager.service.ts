@@ -84,19 +84,19 @@ export class GameManagerService {
   public playCard(card: Card, player: Player): void {
     if(this.player1 == player){
       //trouver pourquoi la carte est vide
-      console.log("received card from player1");
+      //console.log("received card from player1");
       this.centralPack1.push(card);
       this.pushPlay.emit( { card: card, position: "down" } );
       this.pushBotCommand.emit( "playCard");
     }
     else if (this.player2 == player){
-      console.log("received card from player2");
+      //console.log("received card from player2");
       this.centralPack2.push(card);
       this.pushPlay.emit( { card: card, position: "up" } );
     }
     else{
-      console.log("received card from unknown player");
-      console.log(player.username);
+      //console.log("received card from unknown player");
+      //console.log(player.username);
       return;
     }
 
@@ -107,28 +107,28 @@ export class GameManagerService {
        }
     }
   private compareCards(): void{
-    console.log("comparaison : " + this.centralPack1.length + " " + this.centralPack2.length);
+    //console.log("comparaison : " + this.centralPack1.length + " " + this.centralPack2.length);
     if (this.centralPack1[this.centralPack1.length-1].value == 
       this.centralPack2[this.centralPack2.length-1].value){
-      console.log("BATAILLE !");
+    //console.log("BATAILLE !");
       this.pushEvent.emit("war");
     }
+
     else if ((this.centralPack1[this.centralPack1.length-1].value >
        this.centralPack2[this.centralPack2.length-1].value)){
         this.pushEvent.emit("down");
-        console.log("down remporte le tour")
+        //console.log("down remporte le tour")
         this.pushPack1.emit(this.centralPack1.concat(this.centralPack2));
         this.centralPack1 = [];
         this.centralPack2 = [];
        }
+       
     else {
       this.pushEvent.emit("up");
-      console.log("up remporte le tour")
+      //console.log("up remporte le tour")
       this.pushPack2.emit(this.centralPack1.concat(this.centralPack2));
       this.centralPack1 = [];
       this.centralPack2 = [];
-    }
-    
-  }
-  
-  }
+    } 
+  }  
+}
