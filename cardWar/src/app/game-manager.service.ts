@@ -5,6 +5,7 @@ import { Player } from './back/player';
 import { GameComponent } from './game/game.component';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { Play } from './back/play';
 
 @Injectable()
 export class GameManagerService {
@@ -13,11 +14,14 @@ export class GameManagerService {
   shuffledStack: Card[] = [];
   player1: Player;
   player2: Player;
+  observablePlay: Observable<Play>;
 
 
   
 
-  constructor() { }
+  constructor() {
+    this.observablePlay = of({card: null, position: "up"});
+   }
 
   shuffle(): void {
     for (let i = this.stack.length - 1; i >= 0; i--) {
@@ -44,7 +48,7 @@ export class GameManagerService {
       //création du bot
       this.player2 = new Player
       this.player1.pack = [];
-      this.player2.pack = [];;
+      this.player2.pack = [];
 
       this.startGame();
       console.log(this.player1.pack);
@@ -64,11 +68,14 @@ export class GameManagerService {
   public startGame(): void{
     this.shuffle();
     this.deal();
+    
   }
 
   public playCard(card: Card, player: Player): void {
     if(this.player1 == player){
       console.log("received card from player1");
+      this.observablePlay.next({card: card, position: "down"})
+
 
     }
     else if (this.player2 == player){
@@ -80,5 +87,9 @@ export class GameManagerService {
       return;
     }
     //on regarde si l'on a les cartes des deux joueurs pour savoir qui gagne.
+  }
+
+  getPlay(): Observable<Play> {
+    return
   }
 }

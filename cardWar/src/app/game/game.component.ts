@@ -5,6 +5,7 @@ import { MainService } from '../main.service';
 import { Card } from '../back/card'; 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { Play } from '../back/play'
 
 @Component({
   selector: 'app-game',
@@ -15,7 +16,6 @@ export class GameComponent implements OnInit {
 
   constructor(private gameManager: GameManagerService, private mainService : MainService) { }
   
-  private observablePlayedCard: Observable<Play>
   player: Player;
   
   ngOnInit() {
@@ -23,9 +23,9 @@ export class GameComponent implements OnInit {
     if (this.player.username == "") {
       this.player.username = "UnknownPlayer";
     }
-    this.observablePlayedCard.subscribe(
+    this.gameManager.getPlay().subscribe(
       value => this.playCard(value.card, value.position)
-    )
+    );
   }
 
   public playCard(card: Card, position: string): void{
