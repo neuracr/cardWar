@@ -48,11 +48,6 @@ export class GameComponent implements OnInit {
     for (let i = this.mock_cards.length - 1; i >= 0; i--) {
       this.mock_urls.push("url('../img/"+ this.mock_cards[i].value + this.mock_cards[i].color + ".gif;')");
     }
-    
-
-    //this.observablePlayedCard.subscribe(
-    //  value => this.playCard(value.card, value.position)
-    //)
     this.gameManager.pushPlay.subscribe((data:Play) => this.playCard(data));
   }
 
@@ -86,7 +81,7 @@ export class GameComponent implements OnInit {
   public playCard(play: Play): void{
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
-    console.log('gameComponent: '+ play.position + " played " + play.card.value + play.card.color);
+    //console.log('gameComponent: '+ play.position + " played " + play.card.value + play.card.color);
     this.changeVisibility();
 
   }

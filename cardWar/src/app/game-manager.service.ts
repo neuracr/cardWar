@@ -21,6 +21,8 @@ export class GameManagerService {
 
   //emitter to notify the gameComponent to display a card
   pushPlay = new EventEmitter<Play>();
+  pushBotCommand = new EventEmitter<string>();
+
 
   push(value: Play){
     console.log("pushing a play from game service");
@@ -58,11 +60,7 @@ export class GameManagerService {
     if (this.player1 == null){
       this.player1 = player;
       //création du bot
-      this.player2 = new Player
-
-      this.startGame();
-      console.log(this.player1.pack);
-      console.log(this.player2.pack);
+      this.pushBotCommand.emit("joinGame");
     }
     //ne sera jamais executé pour l'instant normalement
     else if (this.player2 == null){
@@ -91,6 +89,7 @@ export class GameManagerService {
       console.log("received card from player1");
       this.centralPack1.push(card);
       this.pushPlay.emit( { card: card, position: "down" } );
+      this.pushBotCommand.emit( "playCard");
     }
     else if (this.player2 == player){
       console.log("received card from player2");
