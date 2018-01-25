@@ -17,23 +17,25 @@
 
 #card-up, #card-down {
     /*/background-image: url("/assets/As.gif");/*/
-    background-size: 50px;
+    background-size: 30px;
     background-repeat: no-repeat;
-    width:50px;   
-    height:67px;
+    width:40px;   
+    height:50px;
     position: absolute;
-    margin-top: 120px;
+    
     border-style: solid;
     text-align:center;   
 }
 
 #card-up{
-    margin-left:260px;
+    margin-top: 90px;
+    margin-left:228px;
     
 }
 
 #card-down {
-    margin-left: 180px;
+    margin-top: 160px;
+    margin-left: 228px;
 }
 
 #bot-pack, #player-pack {
