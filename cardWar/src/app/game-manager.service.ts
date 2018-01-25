@@ -6,6 +6,7 @@ import { GameComponent } from './game/game.component';
 import { Play } from './back/play';
 import { PlayerService } from './player.service';
 import { MainService } from './main.service';
+import { BotService } from './bot.service';
 
 @Injectable()
 export class GameManagerService {
@@ -21,14 +22,8 @@ export class GameManagerService {
 
   //emitter to notify the gameComponent to display a card
   pushPlay = new EventEmitter<Play>();
-
-  push(value: Play){
-    console.log("pushing a play from game service");
-    this.pushPlay.emit(value);
-  }
-
-
-  
+  pushBotCommand = new EventEmitter<string>();
+  pushEvent = new EventEmitter<string>(); //notify war and who won the turn 
 
   constructor(private mainService: MainService) {
     this.centralPack1 = [];
@@ -58,11 +53,7 @@ export class GameManagerService {
     if (this.player1 == null){
       this.player1 = player;
       //création du bot
-      this.player2 = new Player
-
-      this.startGame();
-      console.log(this.player1.pack);
-      console.log(this.player2.pack);
+      this.pushBotCommand.emit("joinGame");
     }
     //ne sera jamais executé pour l'instant normalement
     else if (this.player2 == null){
@@ -91,15 +82,40 @@ export class GameManagerService {
       console.log("received card from player1");
       this.centralPack1.push(card);
       this.pushPlay.emit( { card: card, position: "down" } );
+      this.pushBotCommand.emit( "playCard");
     }
     else if (this.player2 == player){
       console.log("received card from player2");
-      //this.
+      this.centralPack2.push(card);
+      this.pushPlay.emit( { card: card, position: "up" } );
     }
     else{
       console.log("received card from unknown player");
       console.log(player.username);
       return;
     }
+
+    //check if both players have played
+    if (this.centralPack1.length > 0 &&
+       this.centralPack1.length == this.centralPack2.length){
+         this.compareCards();
+       }
+    }
+  private compareCards(): void{
+    console.log("comparaison : " + this.centralPack1.length + " " + this.centralPack2.length);
+    if (this.centralPack1[this.centralPack1.length-1].value == 
+      this.centralPack2[this.centralPack2.length-1].value){
+      console.log("BATAILLE !");
+      this.pushEvent.emit("war");
+    }
+    else if ((this.centralPack1[this.centralPack1.length-1].value >
+       this.centralPack2[this.centralPack2.length-1].value)){
+        this.pushEvent.emit("down");
+       }
+    else {
+      this.pushEvent.emit("up");
+    }
+    
   }
-}
+  
+  }

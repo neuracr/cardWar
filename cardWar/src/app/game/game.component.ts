@@ -6,6 +6,7 @@ import { Card } from '../back/card';
 import { CARDS } from '../back/mock-cards';
 import { Play } from '../back/play'
 import { PlayerService } from '../player.service';
+import { BotService } from '../bot.service';
 
 @Component({
   selector: 'app-game',
@@ -19,7 +20,8 @@ export class GameComponent implements OnInit {
   
   constructor(private gameManager: GameManagerService, 
               private mainService : MainService,
-              private playerService: PlayerService) { 
+              private playerService: PlayerService, 
+              private botService: BotService, ) { 
     for (let i in this.VALUES) {
       for (let j in this.COLORS) {
         this.mock_cards.push(
@@ -43,19 +45,31 @@ export class GameComponent implements OnInit {
       this.player.username = "UnknownPlayer";
     }
     
-    console.log(this.mock_cards);
-
     for (let i = this.mock_cards.length - 1; i >= 0; i--) {
       this.mock_urls.push("url('../img/"+ this.mock_cards[i].value + this.mock_cards[i].color + ".gif');");
     }
-    
-
-    //this.observablePlayedCard.subscribe(
-    //  value => this.playCard(value.card, value.position)
-    //)
     this.gameManager.pushPlay.subscribe((data:Play) => this.playCard(data));
+    this.gameManager.pushEvent.subscribe((data:string) => this.manageEvent(data) );
   }
 
+
+  public manageEvent(data: string): void{
+    switch(data){
+      case "war": {
+        this.declareWar();
+      }
+      case "up":{
+        //function to notify up won
+      }
+      case "down":{
+        //function to notify down won
+      }
+    }
+  }
+
+  public declareWar(): void{
+    //afficher une information comme quoi il y a bataille
+  }
   public getVisibility() {
     return this.visibility;
   }
