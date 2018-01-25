@@ -120,7 +120,7 @@ export class GameComponent implements OnInit {
           theCard = 'Roi';
         break;
         case '0':
-        theCard = '10';
+          theCard = '10';
         break;
       }
     } 
