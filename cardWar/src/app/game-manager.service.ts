@@ -6,6 +6,7 @@ import { GameComponent } from './game/game.component';
 import { Play } from './back/play';
 import { PlayerService } from './player.service';
 import { MainService } from './main.service';
+import { BotService } from './bot.service';
 
 @Injectable()
 export class GameManagerService {

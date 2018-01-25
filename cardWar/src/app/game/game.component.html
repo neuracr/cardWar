@@ -2,7 +2,7 @@
    <div id = "bot-pack">
        <p id="warbot">WarBot</p>
    </div>
-   <div id = "card-up" [ngStyle] = "{'background-image': getImgUrl()}"> </div>
+   <div id = "card-up" [ngStyle] = "{'background-image' : getImgUrl()}"> </div>
    <div id = "player-pack" (click) = "onPackClick()">
         <p id="player">{{player.username}}<!-- [ngStyle] =  "{'background-image': getImgUrl()}"  "{'visibility':getVisibility()}" !--></p>
    </div>
@@ -12,7 +12,7 @@
     <a routerLink="/menu">Go Back to Menu</a>
 </nav>
 
-<div style="visibility:hidden">
+<div style="visibility:visible">
     <div id = "Ac"></div>
     <div id = "Ad"></div>
     <div id = "Ah"></div>
