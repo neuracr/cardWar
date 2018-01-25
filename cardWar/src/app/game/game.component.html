@@ -3,7 +3,7 @@
        <p id="warbot">WarBot</p>
    </div>
    <div id = "card-up" [ngStyle] = "{'visibility':getVisibility()}"> </div>
-   <div id = "player-pack" (click) = "changeVisibility()">
+   <div id = "player-pack" (click) = "onPackClick()">
         <p id="player">{{player.username}}<!-- [ngStyle] =  "{'background-image': getImgUrl()}"  "{'visibility':getVisibility()}" !--></p>
    </div>
 </div>

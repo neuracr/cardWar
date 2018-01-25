@@ -6,6 +6,8 @@ import { Card } from '../back/card';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { CARDS } from '../back/mock-cards';
+import { Play } from '../back/play'
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-game',
@@ -17,7 +19,9 @@ export class GameComponent implements OnInit {
   COLORS: string[] = ['s', 'h', 'd', 'c'];
   mock_cards : Card[] = [];
   
-  constructor(private gameManager: GameManagerService, private mainService : MainService) { 
+  constructor(private gameManager: GameManagerService, 
+              private mainService : MainService,
+              private playerService: PlayerService) { 
     for (let i in this.VALUES) {
       for (let j in this.COLORS) {
         this.mock_cards.push(
@@ -28,7 +32,7 @@ export class GameComponent implements OnInit {
   }
   
   //private observablePlayedCard: Observable<Play>
-  player: Player;
+  private player: Player;
   visibility: string = "visible";
   card_name: string = "url(../img/As.gif)";
   mock_urls : string[] = [];
@@ -46,14 +50,20 @@ export class GameComponent implements OnInit {
     for (let i = this.mock_cards.length - 1; i >= 0; i--) {
       this.mock_urls.push("url('../img/"+ this.mock_cards[i].value + this.mock_cards[i].color + ".gif;')");
     }
+    
 
     //this.observablePlayedCard.subscribe(
     //  value => this.playCard(value.card, value.position)
     //)
+    this.gameManager.pushPlay.subscribe((data:Play) => this.playCard(data));
   }
 
   public getVisibility() {
     return this.visibility;
+  }
+
+  public onPackClick(): void{
+    this.playerService.playACard();
   }
 
   public changeVisibility() {
@@ -73,10 +83,10 @@ export class GameComponent implements OnInit {
     this.card_name =  "url(../img/"+this.player.pack[0].value+this.player.pack[0].color+".gif)";
   }
 
-  public playCard(card: Card, position: string): void{
+  public playCard(play: Play): void{
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
-    console.log('affichage de la carte jouée par le joueur ' + position);
+    console.log('affichage de la carte jouée par le joueur ' + play.position);
 
 
   }
