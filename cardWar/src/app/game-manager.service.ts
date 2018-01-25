@@ -41,7 +41,6 @@ export class GameManagerService {
   }
 
   deal(): void{
-    console.log("Je deal moi monsieur");
     for (let i = this.shuffledStack.length - 1; i >= 0; i--) {
       if (i> (this.shuffledStack.length/2-1)) {
         this.player1.pack.push(this.shuffledStack[i]);
@@ -56,7 +55,6 @@ export class GameManagerService {
   public joinGame(player: Player){
     console.log(player.username + " joined game in game manager");
     if (this.player1 == null){
-      console.log("coucou c'est ici");
       this.player1 = player;
       
       //création du bot
@@ -92,7 +90,6 @@ export class GameManagerService {
       console.log("received card from player1");
       this.centralPack1.push(card);
       this.pushPlay.emit( { card: card, position: "down" } );
-      console.log("heu coucou faut jouer le bot");
       this.pushBotCommand.emit( "playCard");
     }
     else if (this.player2 == player){
@@ -122,9 +119,17 @@ export class GameManagerService {
     else if ((this.centralPack1[this.centralPack1.length-1].value >
        this.centralPack2[this.centralPack2.length-1].value)){
         this.pushEvent.emit("down");
+        console.log("down remporte le tour")
+        this.pushPack1.emit(this.centralPack1.concat(this.centralPack2));
+        this.centralPack1 = [];
+        this.centralPack2 = [];
        }
     else {
       this.pushEvent.emit("up");
+      console.log("up remporte le tour")
+      this.pushPack2.emit(this.centralPack1.concat(this.centralPack2));
+      this.centralPack1 = [];
+      this.centralPack2 = [];
     }
     
   }

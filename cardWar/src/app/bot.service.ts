@@ -28,7 +28,6 @@ export class BotService {
   }
 
   private runCommand(command: string): void {
-    console.log("jfsqkljfsqklfljqsmjl");
     //run the command on the bot asked by the game manager
     switch(command){
       case "playCard":{
