@@ -14,6 +14,12 @@ export class GameManagerService {
   shuffledStack: Card[] = [];
   player1: Player;
   player2: Player;
+  
+  //store the card played on the table by each player
+  centralPack1: Card[];
+  centralPack2: Card[];
+
+  //emitter to notify the gameComponent to display a card
   pushPlay = new EventEmitter<Play>();
 
   push(value: Play){
@@ -25,6 +31,8 @@ export class GameManagerService {
   
 
   constructor(private mainService: MainService) {
+    this.centralPack1 = [];
+    this.centralPack2 = [];
    }
 
   shuffle(): void {
@@ -46,13 +54,11 @@ export class GameManagerService {
   }
 
   public joinGame(player: Player){
-    console.log("joined game in game manager");
+    console.log(player.username + " joined game in game manager");
     if (this.player1 == null){
       this.player1 = player;
       //création du bot
       this.player2 = new Player
-      this.player1.pack = [];
-      this.player2.pack = [];
 
       this.startGame();
       console.log(this.player1.pack);
@@ -70,6 +76,11 @@ export class GameManagerService {
   }
 
   public startGame(): void{
+    //nettoyage des paquets
+    this.player1.pack = [];
+    this.player2.pack = [];
+
+    //mélange et distribution des cartes
     this.shuffle();
     this.deal();
     
@@ -78,7 +89,7 @@ export class GameManagerService {
   public playCard(card: Card, player: Player): void {
     if(this.player1 == player){
       console.log("received card from player1");
-      this.player1.pack.push(card);
+      this.centralPack1.push(card);
       this.pushPlay.emit( { card: card, position: "down" } );
     }
     else if (this.player2 == player){
@@ -90,5 +101,5 @@ export class GameManagerService {
       console.log(player.username);
       return;
     }
-}
+  }
 }

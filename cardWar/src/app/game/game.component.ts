@@ -3,8 +3,6 @@ import { GameManagerService } from '../game-manager.service';
 import { Player } from '../back/player';
 import { MainService } from '../main.service';
 import { Card } from '../back/card'; 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { CARDS } from '../back/mock-cards';
 import { Play } from '../back/play'
 import { PlayerService } from '../player.service';
@@ -88,8 +86,8 @@ export class GameComponent implements OnInit {
   public playCard(play: Play): void{
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
-    console.log('affichage de la carte jouée par le joueur ' + play.position);
-
+    console.log('gameComponent: '+ play.position + " played " + play.card.value + play.card.color);
+    this.changeVisibility();
 
   }
 
