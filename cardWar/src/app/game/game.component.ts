@@ -32,9 +32,9 @@ export class GameComponent implements OnInit {
   }
   
   //private observablePlayedCard: Observable<Play>
-  private player: Player;
+  player: Player;
   visibility: string = "visible";
-  card_name: string = "url(../img/As.gif)";
+  card_name: string = "url('../img/As.gif')";
   mock_urls : string[] = [];
  
   
@@ -64,6 +64,8 @@ export class GameComponent implements OnInit {
 
   public onPackClick(): void{
     this.playerService.playACard();
+    //this.changeVisibility();
+    this.changeCard();
   }
 
   public changeVisibility() {
@@ -80,7 +82,7 @@ export class GameComponent implements OnInit {
   }
 
   public changeCard() {
-    this.card_name =  "url(../img/"+this.player.pack[0].value+this.player.pack[0].color+".gif)";
+    this.card_name =  "url('../img/"+ "2" + "c"+".gif')";
   }
 
   public playCard(play: Play): void{
