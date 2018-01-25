@@ -79,9 +79,11 @@ export class GameManagerService {
 
   public playCard(card: Card, player: Player): void {
     if(this.player1 == player){
+      //trouver pourquoi la carte est vide
       console.log("received card from player1");
       this.centralPack1.push(card);
       this.pushPlay.emit( { card: card, position: "down" } );
+      console.log("heu coucou faut jouer le bot");
       this.pushBotCommand.emit( "playCard");
     }
     else if (this.player2 == player){

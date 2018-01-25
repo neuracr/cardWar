@@ -97,9 +97,10 @@ export class GameComponent implements OnInit {
   }
 
   public playCard(play: Play): void{
+    console.log("jusqu'ici ça va ?") ;
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
-    console.log('gameComponent: '+ play.position + " played " + play.card.value + play.card.color);
+    console.log('gameComponent: '+ play.position + " played ");
     this.card_name = "'url('../img/"+play.card.value + play.card.color +".gif')'";
 
   }

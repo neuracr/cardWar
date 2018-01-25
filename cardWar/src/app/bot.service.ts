@@ -26,6 +26,7 @@ export class BotService {
     //run the command on the bot asked by the game manager
     switch(command){
       case "playCard":{
+        console.log("botCommand: playCard");
         this.playACard();
         break;
       }
