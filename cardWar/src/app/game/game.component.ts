@@ -34,7 +34,8 @@ export class GameComponent implements OnInit {
   //private observablePlayedCard: Observable<Play>
   player: Player;
   visibility: string = "hidden";
-  cardName: string = "";
+  cardUp: string = "";
+  cardDown : string = "";
   mock_urls : string[] = [];
  
   
@@ -83,21 +84,30 @@ export class GameComponent implements OnInit {
       this.visibility = "visible";
   }
 
+  /*/
   public getImgUrl() {
     console.log(this.cardName);
     return this.cardName;
   }
+  
 
   public changeCard() {
     this.cardName =  "url('../img/"+ "2" + "c"+".gif');";
   }
+
+  /*/
 
   public playCard(play: Play): void{
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
     this.changeVisibility();
     
-    this.cardName = this.whichCard(play.card.value, play.card.color);
+    if (play.position == "up") {
+      this.cardUp = this.whichCard(play.card.value, play.card.color);
+    } else {
+      this.cardDown = this.whichCard(play.card.value, play.card.color);
+    }
+    
 
   }
 
