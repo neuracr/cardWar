@@ -8,16 +8,25 @@
     color: rgb(255, 251, 0);
 }
 
-#card-up {
-    /*/background-image: url("../img/As.gif");/*/
+#card-up, #card-down {
+    /*/background-image: url("/assets/As.gif");/*/
     background-size: 50px;
     background-repeat: no-repeat;
     width:50px;   
     height:67px;
     position: absolute;
-    margin-left:260px;
     margin-top: 120px;
-    visibility: visible;
+    border-style: solid;
+    text-align:center;   
+}
+
+#card-up{
+    margin-left:260px;
+    
+}
+
+#card-down {
+    margin-left: 180px;
 }
 
 #bot-pack, #player-pack {
@@ -77,47 +86,3 @@ a:hover {
     margin-left:220px;
     margin-top:220px;
   }
-
-#Ac {
-    background-image: url('../img/Ac.gif'); 
-    visibility: visible;
-    height:50px;
-    width:60px;
-}
-
-#As {
-    background-image: url('../img/As.gif'); 
-    visibility: visible;
-    height:50px;
-    width:60px;
-}
-
-#Ad {
-    background-image: url('../img/Ad.gif'); 
-    visibility: hidden;
-}
-
-#Ah {
-    background-image: url('../img/Ah.gif'); 
-    visibility: hidden;
-}
-
-#A2c {
-    background-image: url('../img/2c.gif'); 
-    visibility: hidden;
-}
-
-#A2s {
-    background-image: url('../img/2s.gif'); 
-    visibility: hidden;
-}
-
-#A2d {
-    background-image: url('../img/2d.gif'); 
-    visibility: hidden;
-}
-
-#A2h {
-    background-image: url('../img/2h.gif'); 
-    visibility: hidden;
-}

@@ -33,8 +33,8 @@ export class GameComponent implements OnInit {
   
   //private observablePlayedCard: Observable<Play>
   player: Player;
-  visibility: string = "visible";
-  card_name: string = "'url('../img/Ac.gif');'";
+  visibility: string = "hidden";
+  cardName: string = "";
   mock_urls : string[] = [];
  
   
@@ -80,29 +80,67 @@ export class GameComponent implements OnInit {
   }
 
   public changeVisibility() {
-    if (this.visibility == "visible") {
-      this.visibility = "hidden";
-    } else {
       this.visibility = "visible";
-    }
   }
 
   public getImgUrl() {
-    console.log(this.card_name);
-    return this.card_name;
+    console.log(this.cardName);
+    return this.cardName;
   }
 
   public changeCard() {
-    this.card_name =  "url('../img/"+ "2" + "c"+".gif');";
+    this.cardName =  "url('../img/"+ "2" + "c"+".gif');";
   }
 
   public playCard(play: Play): void{
     console.log("jusqu'ici ça va ?") ;
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
-    console.log('gameComponent: '+ play.position + " played ");
-    this.card_name = "'url('../img/"+play.card.value + play.card.color +".gif')'";
+    this.changeVisibility();
+    
+    this.cardName = this.whichCard(play.card.value, play.card.color);
 
+  }
+
+  public whichCard(cardValue, cardColor) {
+    var theCard : string = "";
+    if (!isNaN(Number(cardValue))) {
+      if (Number(cardValue) == 0) {
+        theCard = '10';
+      } else {
+        theCard = cardValue;
+      }
+    } else {
+      switch(cardValue) {
+        case 'A':
+          theCard = 'As';
+        break;
+        case 'J':
+          theCard = 'Valet';
+        break;
+        case 'Q':
+          theCard = 'Dame';
+        break;
+        case 'K':
+          theCard = 'Roi';
+        break;
+      }
+    } 
+    switch(cardColor) {
+      case 's':
+        theCard+=" ♠";
+      break;
+      case 'h':
+        theCard+=" ♥";
+      break;
+      case 'd':
+        theCard+=" ♦";
+      break;
+      case 'c':
+        theCard+=" ♣";
+      break;
+    }
+    return theCard;
   }
 
   public moveCard(img:HTMLImageElement) { 

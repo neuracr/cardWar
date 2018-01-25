@@ -15,6 +15,7 @@ export class PlayerService {
   
   public playACard(): void {
     console.log("playerService.playACard()");
+    console.log(this.player.pack);
     this.gameManager.playCard(this.player.pack.pop(), this.player);
 
 

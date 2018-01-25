@@ -78,6 +78,7 @@ export class GameManagerService {
   }
 
   public playCard(card: Card, player: Player): void {
+    console.log(card.color);
     if(this.player1 == player){
       //trouver pourquoi la carte est vide
       console.log("received card from player1");
