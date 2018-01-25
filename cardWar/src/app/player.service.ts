@@ -24,4 +24,8 @@ export class PlayerService {
     this.gameManager.joinGame(this.player);
   }
 
+  public getPlayer(): Player {
+    return this.player;
+  }
+
 }
