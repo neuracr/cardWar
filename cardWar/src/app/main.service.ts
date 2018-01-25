@@ -11,16 +11,16 @@ export class MainService {
     score: 0,
     pack: null,
   }
-  constructor(private gameManager: GameManagerService) { }
+  constructor() { }
 
   getPlayer(): Player {
     return this.player;
   }
 
-  public startGame(): void{
-    console.log("main service start game");
-    this.gameManager.joinGame(this.player);
-  }
+  //public startGame(): void{
+  //  console.log("main service start game");
+  //  this.gameManager.joinGame(this.player);
+  //}
 
   setPlayerUsername(name: string): void {
     this.player.username = name;

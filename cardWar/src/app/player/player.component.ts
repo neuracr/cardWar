@@ -14,7 +14,7 @@ export class PlayerComponent implements OnInit {
   
   constructor(private mainService : MainService, private gameManager: GameManagerService) { }
 
-  playACard(): void {
+  public playACard(): void {
     this.gameManager.playCard(this.player.pack.pop(), this.player);
   }
 

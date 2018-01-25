@@ -9,8 +9,14 @@ import { Card } from '../back/card';
 
 export class CardComponent implements OnInit {
   private name: string;
+  imgSelected
   constructor(private value: string, private color: string) { 
     this.name = value + color;
+  }
+
+  
+  selectImage(img){
+    this.imgSelected = img;
   }
 
   ngOnInit() {

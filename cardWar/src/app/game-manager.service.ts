@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Card } from './back/card';
 import { CARDS } from './back/mock-cards';
 import { Player } from './back/player';
 import { GameComponent } from './game/game.component';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { Play } from './back/play';
+import { PlayerService } from './player.service';
+import { MainService } from './main.service';
 
 @Injectable()
 export class GameManagerService {
@@ -14,13 +14,17 @@ export class GameManagerService {
   shuffledStack: Card[] = [];
   player1: Player;
   player2: Player;
-  observablePlay: Observable<Play>;
+  pushPlay = new EventEmitter<Play>();
+
+  push(value: Play){
+    console.log("pushing a play from game service");
+    this.pushPlay.emit(value);
+  }
 
 
   
 
-  constructor() {
-    this.observablePlay = of({card: null, position: "up"});
+  constructor(private mainService: MainService) {
    }
 
   shuffle(): void {
@@ -74,22 +78,17 @@ export class GameManagerService {
   public playCard(card: Card, player: Player): void {
     if(this.player1 == player){
       console.log("received card from player1");
-      this.observablePlay.next({card: card, position: "down"})
-
-
+      this.player1.pack.push(card);
+      this.pushPlay.emit( { card: card, position: "down" } );
     }
     else if (this.player2 == player){
       console.log("received card from player2");
-      this.
+      //this.
     }
     else{
       console.log("received card from unknown player");
+      console.log(player.username);
       return;
     }
-    //on regarde si l'on a les cartes des deux joueurs pour savoir qui gagne.
-  }
-
-  getPlay(): Observable<Play> {
-    return
-  }
+}
 }
