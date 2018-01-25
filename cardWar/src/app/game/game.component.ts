@@ -37,6 +37,7 @@ export class GameComponent implements OnInit {
   cardUp: string = "";
   cardDown : string = "";
   mock_urls : string[] = [];
+  war = "";
  
   
   
@@ -56,21 +57,19 @@ export class GameComponent implements OnInit {
 
   public manageEvent(data: string): void{
     switch(data){
-      case "war": {
-        this.declareWar();
-      }
-      case "up":{
-        //function to notify up won
-      }
-      case "down":{
-        //function to notify down won
-      }
+      case "war": 
+        this.war = "BATAILLE !";
+      break;
+      case "up":
+        this.war = "WarBot gagne !";
+      break;
+      case "down":
+        this.war = this.player.username + " gagne !";
+      break;
     }
   }
 
-  public declareWar(): void{
-    //afficher une information comme quoi il y a bataille
-  }
+
   public getVisibility() {
     return this.visibility;
   }
@@ -98,7 +97,6 @@ export class GameComponent implements OnInit {
   /*/
 
   public playCard(play: Play): void{
-    console.log("jusqu'ici ça va ?") ;
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
     this.changeVisibility();

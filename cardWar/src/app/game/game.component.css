@@ -8,6 +8,13 @@
     color: rgb(255, 251, 0);
 }
 
+#war {
+    position: absolute;
+    margin-top: 140px;
+    margin-left: 50px;
+    width: 80px;
+}
+
 #card-up, #card-down {
     /*/background-image: url("/assets/As.gif");/*/
     background-size: 50px;
@@ -31,13 +38,13 @@
 
 #bot-pack, #player-pack {
     background-image: url("../img/card_pack.png");
-    background-size: 54.5px;
+    background-size: 40px;
     background-repeat: no-repeat;
     height:76.25px;
-    width:54.5px;
+    width:40px;
     margin: 0 auto;
     position:absolute;
-    margin-left: 220px;   
+    margin-left: 230px;   
 }
 
 #bot-pack {
@@ -45,7 +52,7 @@
 }
 
 #player-pack {
-    margin-top: 220px;
+    margin-top: 240px;
     cursor:pointer;
 }
 
@@ -56,8 +63,8 @@
 }
 
 #player {
-    margin-left: 68px;
-    margin-top: 56px;
+    margin-left: 64px;
+    margin-top: 38px;
     font-size: 20px;
 }
 

@@ -48,8 +48,6 @@ export class GameManagerService {
         this.player2.pack.push(this.shuffledStack[i]);
       }
     }
-    this.pushPack1.emit(this.player1.pack);
-    this.pushPack2.emit(this.player2.pack);
   }
 
   public joinGame(player: Player){
@@ -84,7 +82,6 @@ export class GameManagerService {
   }
 
   public playCard(card: Card, player: Player): void {
-    console.log(card.color); 
     if(this.player1 == player){
       //trouver pourquoi la carte est vide
       console.log("received card from player1");

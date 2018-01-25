@@ -11,19 +11,19 @@ export class PlayerService {
   constructor(private mainService: MainService, private gameManager: GameManagerService) {
     console.log("initialisation du player");
     this.player = { id: 0, username: "", score: 0, pack: [] };
-    this.gameManager.pushPack1.subscribe((packToCopy:Card[]) => this.addToPack(packToCopy));
+    this.gameManager.pushPack1.subscribe((packToCopy:Card[]) =>  this.addToPack(packToCopy));
  
   }
   
 private addToPack(toCopy: Card[]){
-  for (let card of toCopy){
-    this.player.pack.unshift(card);
+  console.log(toCopy);
+  while (toCopy.length != 0){
+    this.player.pack.unshift(toCopy.pop());
   }
-  console.log(this.player.pack);
 }
 
   public playACard(): void {
-    console.log("playerService.playACard()");
+    console.log("playerService.playACard()" + this.player.pack.length);
     console.log(this.player.pack);
     this.gameManager.playCard(this.player.pack.pop(), this.player);
 

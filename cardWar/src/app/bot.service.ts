@@ -13,17 +13,22 @@ export class BotService {
   constructor(private mainService: MainService, private gameManager: GameManagerService) {
     console.log("initialisation du bot");
     this.player = { id: 0, username: "RobbyBot", score: 0, pack: [] };
-
-    this.gameManager.pushPack2.subscribe((packToCopy:Card[]) => this.player.pack = packToCopy);
     this.gameManager.pushBotCommand.subscribe((command:string) => this.runCommand(command));
+    this.gameManager.pushPack2.subscribe((packToCopy:Card[]) =>  this.addToPack(packToCopy));
   }
+   
+ private addToPack(toCopy: Card[]){
+   console.log(toCopy);
+   while (toCopy.length != 0){
+     this.player.pack.unshift(toCopy.pop());
+   }
+ }
 
   ngOnInit() {
     this.player = { id: 0, username: "RobbyBot", score: 0, pack: [] };
   }
 
   public playACard(): void {
-    console.log("botService.playACard()");
     this.gameManager.playCard(this.player.pack.pop(), this.player);
   }
 
