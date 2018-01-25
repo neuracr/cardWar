@@ -3,6 +3,7 @@ import { GameManagerService } from '../game-manager.service';
 import { Player } from '../back/player';
 import { MainService } from '../main.service';
 import { Card } from '../back/card'; 
+import { CARDS } from '../back/mock-cards';
 import { Play } from '../back/play'
 import { PlayerService } from '../player.service';
 
@@ -12,19 +13,46 @@ import { PlayerService } from '../player.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-
+  VALUES: string[] = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K'];
+  COLORS: string[] = ['s', 'h', 'd', 'c'];
+  mock_cards : Card[] = [];
+  
   constructor(private gameManager: GameManagerService, 
               private mainService : MainService,
-              private playerService: PlayerService) { }
+              private playerService: PlayerService) { 
+    for (let i in this.VALUES) {
+      for (let j in this.COLORS) {
+        this.mock_cards.push(
+            {value: this.VALUES[i], color: this.COLORS[j]}
+        );
+      }
+    }
+  }
   
+  //private observablePlayedCard: Observable<Play>
   private player: Player;
-  visibility: string = "hidden";
+  visibility: string = "visible";
+  card_name: string = "url(../img/As.gif)";
+  mock_urls : string[] = [];
+ 
+  
   
   ngOnInit() {
     this.player = this.mainService.getPlayer();
     if (this.player.username == "") {
       this.player.username = "UnknownPlayer";
     }
+    
+    console.log(this.mock_cards);
+
+    for (let i = this.mock_cards.length - 1; i >= 0; i--) {
+      this.mock_urls.push("url('../img/"+ this.mock_cards[i].value + this.mock_cards[i].color + ".gif;')");
+    }
+    
+
+    //this.observablePlayedCard.subscribe(
+    //  value => this.playCard(value.card, value.position)
+    //)
     this.gameManager.pushPlay.subscribe((data:Play) => this.playCard(data));
   }
 
@@ -42,7 +70,15 @@ export class GameComponent implements OnInit {
     } else {
       this.visibility = "visible";
     }
-    
+  }
+
+  public getImgUrl() {
+    console.log(this.card_name);
+    return this.card_name;
+  }
+
+  public changeCard() {
+    this.card_name =  "url(../img/"+this.player.pack[0].value+this.player.pack[0].color+".gif)";
   }
 
   public playCard(play: Play): void{
