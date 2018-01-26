@@ -11,6 +11,8 @@
         <p *ngIf="playerService.player.username == ''" id="player">joueur anonyme<!-- [ngStyle] =  "{'background-image': getImgUrl()}"  "{'visibility':getVisibility()}" !-->
         </p>
    </div>
+   <div *ngIf="playerService.player.pack.length > 1" id = "pack-info"  [ngStyle] = "{'visibility': getVisibility()}" >{{this.playerService.player.pack.length}} cartes dans le paquet</div>
+   <div *ngIf="playerService.player.pack.length <= 1" id = "pack-info"  [ngStyle] = "{'visibility': getVisibility()}" >{{this.playerService.player.pack.length}} carte dans le paquet</div>
 </div>
 
 <nav>

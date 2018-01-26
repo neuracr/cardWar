@@ -65,14 +65,14 @@ export class GameComponent implements OnInit {
         this.war = "cartes recouvertes";
         break;
       case "up":
-        this.war = "WarBot gagne !";
+        this.war = "WarBot gagne ";
       break;
       case "down":
         if (this.playerService.player.username != ''){
         this.war = this.playerService.player.username + " gagne !";
         }
         else{
-          this.war = "joueur anonyme gagne !";
+          this.war = "joueur anonyme gagne ";
         }
         break;
     }

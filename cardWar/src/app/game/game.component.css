@@ -27,6 +27,13 @@
     text-align:center;   
 }
 
+#pack-info{
+    width:200px;
+    margin-left:280px;
+    margin-top:240px;
+    position:absolute;
+}
+
 #card-up{
     margin-top: 90px;
     margin-left:228px;
@@ -68,6 +75,7 @@
     margin-left: 64px;
     margin-top: 38px;
     font-size: 20px;
+    width:200px;
 }
 
 nav {
