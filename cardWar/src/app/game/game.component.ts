@@ -92,28 +92,17 @@ export class GameComponent implements OnInit {
       this.visibility = "visible";
   }
 
-  /*/
-  public getImgUrl() {
-    console.log(this.cardName);
-    return this.cardName;
-  }
-  
-
-  public changeCard() {
-    this.cardName =  "url('../img/"+ "2" + "c"+".gif');";
-  }
-
-  /*/
-
   public playCard(play: Play): void{
     //mettre ici le code d'affichage de la carte jouée.
     //position donne la position du joueur qui joue la carte ('up' ou 'down')
     this.changeVisibility();
-    console.log(play.card.value+play.card.color);
-    if (play.position == "up") {
-      this.cardUp = this.whichCard(play.card.value, play.card.color);
-    } else {
-      this.cardDown = this.whichCard(play.card.value, play.card.color);
+
+    if (play.card !== undefined) {
+      if (play.position == "up") {
+        this.cardUp = this.whichCard(play.card.value, play.card.color);
+      } else {
+        this.cardDown = this.whichCard(play.card.value, play.card.color);
+      }
     }
     
 
@@ -165,23 +154,4 @@ export class GameComponent implements OnInit {
     }
     return theCard;
   }
-
-  public moveCard(img:HTMLImageElement) { 
-    
-    /*/
-    var posTop = 0, posRight = 47;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (posTop == -90) {
-        clearInterval(id);
-      } else {
-        posTop--;
-        posRight = posRight - 0.08;
-        elem.style.top = posTop + 'px';
-        elem.style.right = posRight + '%'; 
-      }
-    }/*/
-  }
-
-
 }
