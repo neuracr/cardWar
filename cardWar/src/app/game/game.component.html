@@ -1,19 +1,25 @@
 <div id="game">
-    <div id="bot-pack">
-        <p id="warbot">WarBot</p>
+    <div *ngIf="!finished">
+        <div id="bot-pack">
+            <p id="warbot">WarBot</p>
+        </div>
+        <div id="card-up" [ngStyle]="{'visibility': getVisibility()}"> {{cardUp}}</div>
+        <div id="card-down" [ngStyle]="{'visibility': getVisibility()}"> {{cardDown}}</div>
+        <div id="war">{{ war }} </div>
+        <div id="player-pack" (click)="onPackClick()">
+            <p *ngIf="playerService.player.username != ''" id="player">{{playerService.player.username}}
+            </p>
+            <p *ngIf="playerService.player.username == ''" id="player">joueur anonyme
+            </p>
+        </div>
+        <div *ngIf="playerService.player.pack.length > 1" id="pack-info" [ngStyle]="{'visibility': getVisibility()}">{{this.playerService.player.pack.length}} cartes dans le paquet</div>
+        <div *ngIf="playerService.player.pack.length <= 1" id="pack-info" [ngStyle]="{'visibility': getVisibility()}">{{this.playerService.player.pack.length}} carte dans le paquet</div>
     </div>
-    <div id="card-up" [ngStyle]="{'visibility': getVisibility()}"> {{cardUp}}</div>
-    <div id="card-down" [ngStyle]="{'visibility': getVisibility()}"> {{cardDown}}</div>
-    <div id="war">{{ war }} </div>
-    <div id="player-pack" (click)="onPackClick()">
-        <p *ngIf="playerService.player.username != ''" id="player">{{playerService.player.username}}
-        </p>
-        <p *ngIf="playerService.player.username == ''" id="player">joueur anonyme
-        </p>
+    <div  *ngIf="finished" style="text-align: center; margin-top: auto; margin-bottom: auto">
+        La partie est terminée !
     </div>
-    <div *ngIf="playerService.player.pack.length > 1" id="pack-info" [ngStyle]="{'visibility': getVisibility()}">{{this.playerService.player.pack.length}} cartes dans le paquet</div>
-    <div *ngIf="playerService.player.pack.length <= 1" id="pack-info" [ngStyle]="{'visibility': getVisibility()}">{{this.playerService.player.pack.length}} carte dans le paquet</div>
 </div>
+
 
 <nav>
     <a routerLink="/menu">Retour au menu principal</a>

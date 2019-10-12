@@ -39,6 +39,7 @@ export class GameComponent implements OnInit {
   cardDown : string = "";
   mock_urls : string[] = [];
   war = "";
+  finished: Boolean = false;
  
   
   
@@ -103,6 +104,8 @@ export class GameComponent implements OnInit {
       } else {
         this.cardDown = this.whichCard(play.card.value, play.card.color);
       }
+    } else {
+      this.finished = true;
     }
     
 
