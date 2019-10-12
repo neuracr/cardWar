@@ -122,35 +122,33 @@ export class GameManagerService {
     }
 
   private compareCards(): void{
-    var value1 = this.convertValue( this.centralPack1[this.centralPack1.length-1].value );
-    var value2 = this.convertValue( this.centralPack2[this.centralPack2.length-1].value );
-    //console.log("comparaison : " + this.centralPack1.length + " " + this.centralPack2.length);
-    if (this.coverForWar){
-      console.log('compare -> cover');
-      this.coverForWar = false;
-      this.pushEvent.emit("cover");
-    }
-    else if (value1 == value2){
-      console.log('compare -> war');
-      this.pushEvent.emit("war");
-      this.coverForWar = true;
-    }
-
-    else if (value1 > value2) {
-        this.pushEvent.emit("down");
-        console.log('compare -> down');
-        this.pushPack1.emit(this.centralPack1.concat(this.centralPack2));
+    if (this.centralPack1.length > 0 && this.centralPack1.length) {
+      var value1 = this.convertValue( this.centralPack1[this.centralPack1.length-1].value );
+      var value2 = this.convertValue( this.centralPack2[this.centralPack2.length-1].value );
+  
+      if (this.coverForWar){
+        this.coverForWar = false;
+        this.pushEvent.emit("cover");
+      }
+      else if (value1 == value2){
+        this.pushEvent.emit("war");
+        this.coverForWar = true;
+      }
+  
+      else if (value1 > value2) {
+          this.pushEvent.emit("down");
+          this.pushPack1.emit(this.centralPack1.concat(this.centralPack2));
+          this.centralPack1 = [];
+          this.centralPack2 = [];
+         }
+         
+      else {
+        this.pushEvent.emit("up");
+        this.pushPack2.emit(this.centralPack1.concat(this.centralPack2));
         this.centralPack1 = [];
         this.centralPack2 = [];
-       }
-       
-    else {
-      this.pushEvent.emit("up");
-      //console.log("up remporte le tour")
-      this.pushPack2.emit(this.centralPack1.concat(this.centralPack2));
-      this.centralPack1 = [];
-      this.centralPack2 = [];
-    } 
+      } 
+    }
   }
 
   private convertValue(stringValue: string): number{

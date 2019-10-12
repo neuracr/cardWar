@@ -6,4 +6,5 @@ h1 {
     font-family: calibri;
     color: rgb(24, 77, 22);
     display: inline-block;
+    text-shadow: rgb(199, 196, 14) 1px 1px, rgb(199, 196, 14) -1px 1px, rgb(199, 196, 14) -1px -1px, rgb(199, 196, 14) 1px -1px;
 }    
